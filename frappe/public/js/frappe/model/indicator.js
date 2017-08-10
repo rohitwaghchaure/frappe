@@ -14,12 +14,18 @@ frappe.has_indicator = function(doctype) {
 	return false;
 }
 
-frappe.get_indicator = function(doc, doctype, without_workflow = true) {
+frappe.get_indicator = function(doc, doctype, without_workflow) {
 	if(doc.__unsaved) {
 		return [__("Not Saved"), "orange"];
 	}
 
-	if(!doctype) doctype = doc.doctype;
+	if(!doctype) {
+		doctype = doc.doctype
+	};
+
+	if(without_workflow==undefined) {
+		without_workflow = true;
+	}
 
 	var settings = frappe.listview_settings[doctype] || {};
 
