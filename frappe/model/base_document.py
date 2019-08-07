@@ -645,7 +645,7 @@ class BaseDocument(object):
 
 			elif df and (df.get("ignore_xss_filter")
 						or (df.get("fieldtype")=="Code" and df.get("options")!="Email")
-						or df.get("fieldtype") in ("Attach", "Attach Image", "Barcode")
+						or df.get("fieldtype") in ("Attach", "Attach Image", "Barcode", "Qrcode")
 
 						# cancelled and submit but not update after submit should be ignored
 						or self.docstatus==2

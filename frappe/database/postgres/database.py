@@ -60,6 +60,7 @@ class PostgresDatabase(Database):
 			'Signature':	('text', ''),
 			'Color':		('varchar', self.VARCHAR_LEN),
 			'Barcode':		('text', ''),
+			'Qrcode':		('text', ''),
 			'Geolocation':	('text', '')
 		}
 

@@ -137,7 +137,14 @@ frappe.ui.form.Control = Class.extend({
 	parse_validate_and_set_in_model: function(value, e) {
 		if(this.parse) {
 			value = this.parse(value);
+
+			if (value && typeof(value) === Object && value.then()) {
+				return value.then((text) => {
+					this.validate_and_set_in_model(text, e);
+				});
+			}
 		}
+
 		return this.validate_and_set_in_model(value, e);
 	},
 	validate_and_set_in_model: function(value, e) {
@@ -155,7 +162,7 @@ frappe.ui.form.Control = Class.extend({
 
 					if(me.df.change || me.df.onchange) {
 						// onchange event specified in df
-						return (me.df.change || me.df.onchange).apply(me, [e]);
+						return (me.df.change || me.df.onchange)(me, [e]);
 					}
 				}
 			]);

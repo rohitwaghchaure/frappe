@@ -34,6 +34,7 @@ data_fieldtypes = (
 	'Signature',
 	'Color',
 	'Barcode',
+	'Qrcode',
 	'Geolocation'
 )
 

@@ -55,6 +55,7 @@ class MariaDBDatabase(Database):
 			'Signature':	('longtext', ''),
 			'Color':		('varchar', self.VARCHAR_LEN),
 			'Barcode':		('longtext', ''),
+			'Qrcode':		('longtext', ''),
 			'Geolocation':	('longtext', '')
 		}
 
