@@ -248,6 +248,9 @@ def check_email_limit(recipients):
 	# No limit for own email settings
 	smtp_server = SMTPServer()
 
+	if not recipients:
+		recipients = []
+
 	if (smtp_server.email_account
 		and getattr(smtp_server.email_account, "from_site_config", False)
 		or frappe.flags.in_test):
