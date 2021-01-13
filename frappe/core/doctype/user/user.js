@@ -40,7 +40,7 @@ frappe.ui.form.on('User', {
 	onload: function(frm) {
 		frm.can_edit_roles = has_access_to_edit_user();
 
-		if(frm.can_edit_roles && !frm.is_new()) {
+		if (frm.can_edit_roles && !frm.is_new() && frm.doc.user_type == 'System User') {
 			if(!frm.roles_editor) {
 				var role_area = $('<div style="min-height: 300px">')
 					.appendTo(frm.fields_dict.roles_html.wrapper);
@@ -56,7 +56,7 @@ frappe.ui.form.on('User', {
 	},
 	refresh: function(frm) {
 		var doc = frm.doc;
-		if(!frm.is_new() && !frm.roles_editor && frm.can_edit_roles) {
+		if (frm.doc.user_type == 'System User' && !frm.is_new() && !frm.roles_editor && frm.can_edit_roles) {
 			frm.reload_doc();
 			return;
 		}

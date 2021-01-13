@@ -13,7 +13,8 @@
   "column_break_4",
   "disabled",
   "desk_access",
-  "two_factor_auth"
+  "two_factor_auth",
+  "is_custom"
  ],
  "fields": [
   {
@@ -60,12 +61,19 @@
   {
    "fieldname": "column_break_4",
    "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_custom",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Is Custom"
   }
  ],
  "icon": "fa fa-bookmark",
  "idx": 1,
  "links": [],
- "modified": "2020-08-06 15:42:59.036960",
+ "modified": "2021-01-25 10:35:37.638350",
  "modified_by": "Administrator",
  "module": "Core",
  "name": "Role",
