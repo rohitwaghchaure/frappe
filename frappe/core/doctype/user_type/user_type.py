@@ -95,7 +95,7 @@ class UserType(Document):
 			user.set('block_modules', block_modules)
 
 	def add_role_permissions_for_user_doctypes(self):
-		perms = ['read', 'write', 'create', 'submit', 'cancel', 'amend']
+		perms = ['read', 'write', 'create', 'submit', 'cancel', 'amend', 'delete']
 		for row in self.user_doctypes:
 			docperm = add_role_permissions(row.document_type, self.role)
 
@@ -235,6 +235,8 @@ def apply_permissions_for_non_standard_user_type(doc, method=None):
 
 	if not user_types:
 		user_types = get_non_standard_user_type_details()
+
+	if not user_types: return
 
 	for user_type, data in iteritems(user_types):
 		if (not doc.get(data[1]) or doc.doctype != data[0]): continue
